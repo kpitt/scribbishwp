@@ -6,20 +6,22 @@
 		
 		<?php while (have_posts()) : the_post(); ?>
 				
-			<div class="atomentry" id="article-<?php the_ID(); ?>">
-				<h2 class="title">
+			<div class="hentry" id="article-<?php the_ID(); ?>">
+				<h2 class="entry-title">
           <a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a>
+          <?php the_comment_count_elem(); ?>
         </h2>
 
-        <p class="author">
-				  Posted by <cite><?php the_author() ?></cite> on
-          <abbr class="published" title="<?php the_time('Y-m-d\TH:i:s') ?>"><span class="posted_date" title="<?php the_time('D, d M Y H:i:s T') ?>"><?php the_time('F d, Y') ?></span></abbr>
-        </p>
-				
-				<div class="content">
+        <div class="posted">
+          <span class="vcard">
+            Posted by <span class="fn"><?php the_author() ?></span>
+          </span>
+          <abbr class="published" title="<?php the_time_xml() ?>"><span class="posted_date" title="<?php the_time('D, d M Y H:i:s T') ?>">on <?php the_time('F d, Y') ?></span></abbr>
+        </div>
+        <br class="clear" />
+				<div class="entry-content">
 					<?php the_content('Continue reading...'); ?>
 				</div>
-		
 				<ul class="meta">
           <li class="categories">Posted in <?php the_category(', ') ?></li>
           <li>Meta

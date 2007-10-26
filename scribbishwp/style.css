@@ -2,56 +2,94 @@
 Theme Name: ScribbishWP
 Theme URI: http://pittcrew.net/geekblog/scribbishwp
 Description: WordPress port of the Scribbish theme for Typo.
-Version: 0.1-2.0
+Version: 1.0-3.0
 Author: Kenny Pitt and Jeffrey Hardy
 Author URI: http://pittcrew.net/geekblog/
 
-	ScribbishWP v0.1-2.0
-	 http://pittcrew.net/geekblog/scribbishwp
+  ScribbishWP v1.0-3.0
+    http://pittcrew.net/geekblog/scribbishwp
 
-	The original Scribbish theme for Typo was designed by Packagethief
-	(aka Jeffrey Allan Hardy), whose blog you will find at
-	http://quotedprintable.com/.  The original Typo version of Scribbish can
-	be found at http://quotedprintable.com/pages/scribbish.
-	
+  The original Scribbish theme for Typo was designed by Packagethief
+  (aka Jeffrey Allan Hardy), whose blog you will find at
+  http://quotedprintable.com/.  The original Typo version of Scribbish can
+  be found at http://quotedprintable.com/pages/scribbish.
+  
   The theme was ported to WordPress by Kenny Pitt.
 */
 
 
 
-/*===== Layout Styles =====*/
+/*===== Layout Styles ====================*/
 
+/**
+ * Controls the main layout (width, height, margin, padding)
+ *
+ * #container
+ *   #header
+ *   #page
+ *     #content
+ *     #sidebar
+ *   #footer
+ */
 body {
-	text-align: center;
-	margin: 0; padding: 1em; 
-	}
+  text-align: center;
+  margin: 0; padding: 0.6em 1em 1em 1em; 
+}
 
 #container {
-	width: 740px;
-	text-align: left; 
-	margin: 0 auto; padding: 0;
+  text-align: left; 
+  margin: 0 auto; padding: 0;
 }
 
 #header {
-	height: 60px; 
-	margin: 0 0 15px; padding: 0;
+  height: 62px; 
+  margin: 0 -0.5px 12px 0; padding: 0;
 }
 
 #page {}
 
 #content {
-	width: 500px;
+  float: left;
+  padding: 0 0 0 5px;
 }
 
 #sidebar {
-	width: 200px;
+  float: right;
+  text-align: left;
+  width: 200px;
+  padding-left: 15px;
+  border-left: 1px dotted #ddd;
 }
 
 #footer {
-	height: 40px; 
-	margin: 10px 0 0; padding: 10px 0 0;
-	clear:both; 
+  height: 40px; 
+  margin: 10px 0 0; padding: 10px 0 0;
+  clear:both; 
 }
+
+/*--------------------------------------------------------------
+ Content Width: you can have standard or wide
+ --------------------------------------------------------------*/
+
+/* BEGIN: Standard Layout */
+#container {
+  width: 740px;
+}
+
+#content {
+  width: 500px;
+}
+/* END: Standard Layout */
+
+/* BEGIN: Wide Layout
+#container {
+  width: 900px;
+}
+
+#content {
+  width: 662px;
+}
+/* END: Wide Layout */
 
 /*--------------------------------------------------------------
  Sidebar Alignment: you can have left or right
@@ -59,63 +97,62 @@ body {
 
 /* BEGIN: Right Sidebar */
 #sidebar {
-	float: right; text-align: left;
-	padding-left: 15px; 
-	border-left: 1px dotted #ddd; 
+  float: right; text-align: left;
+  padding-left: 15px; 
+  border-left: 1px dotted #ddd; 
 }
 #content {
-	float: left;
-	padding-left: 5px; 
+  float: left;
+  padding-left: 5px; 
 }
 /* END: Right Sidebar */
 
 
 /* BEGIN: Left Sidebar
 #sidebar {
-	float: left; text-align: right;
-	padding-right: 20px; 
-	border-right: 1px dotted #ddd; 
+  float: left; text-align: right;
+  padding-right: 20px; 
+  border-right: 1px dotted #ddd; 
 }
 
 #content {
-	float: right; text-align: left;
+  float: right; text-align: left;
 }
 /* END: Left Sidebar */
 
-/*===== Content Styles =====*/
+/*===== Content Styles ====================*/
 
 /*--------------------------------------------------------------
  Header
  --------------------------------------------------------------*/
 
 #header { 
-	background: url(images/header_shadow.gif) repeat-x left bottom;
+  background: url(images/header_shadow.gif) repeat-x left bottom;
 }
 
 #header a:link,
 #header a:visited { 
-	color:#000;
-	text-decoration: none;
+  color:#000;
+  text-decoration: none;
 }
 
 #header a:hover,
 #header a:active {
-	color:#930; background: transparent;
-	text-decoration: none;
+  color:#930; background: transparent;
+  text-decoration: none;
 }
 
 #header h1 {
-	font: bold 400% georgia, serif; 
-	letter-spacing: -1px; 
-	margin: 0;
-	padding: 0 3px;
-	float: left; 
+  font: bold 410% georgia, serif; 
+  letter-spacing: -1px; 
+  margin: 0;
+  float: left; 
 }
 
 #header h2 {
-	font: normal 12px verdana, arial, sans-serif;  
-	margin: 2.5em 0 0 0.8em;
-	float: left; 
+  font: normal 12px verdana, arial, sans-serif;  
+  margin: 2.35em 0.2em 0 0;
+  float: right; 
 }
 
 /*--------------------------------------------------------------
@@ -129,247 +166,281 @@ body {
 #content h3,
 #content h4,
 #content h5 { 
-	font-family: "lucidamac bold", "lucida grande", arial, sans-serif; 
-	letter-spacing: -1px;
+  /* BEGIN: Scribbish 2.0 Styles */
+	font-family: "lucidamac bold", "lucida grande", arial, sans-serif;
+  /* END: Scribbish 2.0 Styles */
+  /* BEGIN: Scribbish 3.0 Styles 
+  font-family: georgia, times, serif; 
+  font-weight: normal;
+  /* END: Scribbish 3.0 Styles */
+  letter-spacing: -1px;
 }
 
 #content h1 { 
-	font-size: 24px;
-	margin: 0 0 0.3em;	
+  font-size: 28px;
+  margin: 0 0 0.3em;  
 }
 
 #content h2 { 
-	font-size: 22px;
-	margin: 0 0 0.3em;	
+  font-size: 24px;
+  margin: 0 0 0.3em;  
 }
 
 #content h3 { 
-	font-size: 20px;
-	margin: 1.2em 0 0.3em;	
+  font-size: 22px;
+  margin: 1.2em 0 0.3em;  
 }
 
 #content h4 { 
-	font-size: 18px;
-	margin: 1.2em 0 0.3em;	
-	border-bottom: 1px dotted #bbb;
+  font-size: 20px;
+  margin: 1.2em 0 0.3em;  
+  border-bottom: 1px dotted #bbb;
 }
 
 #content h5 {
-	font-size: 18px;
-	background: #ffd;
-	margin: 1.2em 0 0.3em;	
-	border-bottom: 1px dotted #aaa;
+  font-size: 20px;
+  background: #ffd;
+  margin: 1.2em 0 0.3em;  
+  border-bottom: 1px dotted #aaa;
 }
 
 #content p {
-	line-height: 15px; 
-	margin: 0 0 1.2em;
+  line-height: 14px; 
+  margin: 0 0 1.2em;
 }
 
 #content ul,
 #content ol {
-	margin: 1em;
-	padding:0;
+  margin: 1em;
+  padding:0;
 }
 
 #content ul {
-	list-style-type: square;
+  list-style-type: square;
 }
 
 #content li {
-	line-height: 15px; 
-	margin: 0 0 0 1em; padding: 0;
+  line-height: 15px; 
+  margin: 0 0 0 1em; padding: 0;
 }
 
 #content blockquote {
-	color: #555;
-	border-left: 5px solid #ccc; 
-	margin: 1.3em 1em; padding: 0 1em;
+  color: #555;
+  border-left: 5px solid #ccc; 
+  margin: 1.3em 1em; padding: 0 1em;
 }
 
-#content pre, 
 #content code { 
-	font: normal 12px "bitstream vera sans mono", monaco "lucida console", "courier new", courier, serif;
+  font: normal 12px "bitstream vera sans mono", monaco, "lucida console", "courier new", courier, serif;
 }
 
 #content pre {
-	color: #eee;
-	background: #000; 
-	margin: 1em 0; padding: 10px;
-	overflow: auto; 
+  color: #63FF00; /* green on black like an old-school monochrome monitor */
+  /*color: #eee;*/ /* uncomment if you prefer basic grey text */
+  background: #000; 
+  overflow: auto;
+  font: normal 12px "bitstream vera sans mono", monaco, "lucida console", "courier new", courier, serif;
+  margin: 0.9em 0; padding: 8px;
 }
 
 /* Article Entries - class names based on http://microformats.org/wiki/hatom] */
-#content .atomentry { 
-	margin: 0 0 3em 0;
+#content .hentry { 
+  margin: 0 0 3em 0;
 }
 
-#content .atomentry .title {
-	font-size: 24px;
-	line-height: 94%;
-	letter-spacing: -1.5px; 
-	margin: 0;
+#content .hentry .entry-title {
+  font-size: 30px;
+  line-height: 99%;
+  letter-spacing: -1.5px; 
+  margin: 0;
 }
 
-#content .atomentry .title a:link,
-#content .atomentry .title a:visited { 
+#content .hentry .entry-title a:link,
+#content .hentry .entry-title a:visited { 
+  /* BEGIN: Scribbish 2.0 Styles */
 	color: #930;
-	text-decoration: none;
+  /* END: Scribbish 2.0 Styles */
+  /* BEGIN: Scribbish 3.0 Styles 
+  color: #111;
+  /* END: Scribbish 3.0 Styles */
+  text-decoration: none;
 }
 
-#content .atomentry .title a:hover,
-#content .atomentry .title a:active { 
+#content .hentry .entry-title a:hover,
+#content .hentry .entry-title a:active { 
+  background: transparent;
+  /* BEGIN: Scribbish 2.0 Styles */
 	color: #000;
-	background: transparent;
+  /* END: Scribbish 2.0 Styles */
+  /* BEGIN: Scribbish 3.0 Styles 
+  text-decoration: underline;
+  /* END: Scribbish 3.0 Styles */
 }
 
-#content .atomentry .title .comment_count { display: none; }
+/* Set display to "inline" to show comment count after article title */
+#content .hentry .entry-title .comment_count { color: #eee; display: none; }
 
-#content .atomentry .author {
-	color: #bbb;
-	font: normal 16px/14px "lucidamac bold", "lucida grande", arial, verdana, sans-serif;
-	letter-spacing: -1px;
-	margin: 0 0 1em;
+#content .hentry .posted {
+  float: left;
+  color: #a9a9a9;
+  font: normal 16px/14px helvetica, arial, verdana, sans-serif;
+  letter-spacing: -1px;
+  margin: 1px 0 0.6em 2px;
 }
 
-#content .atomentry .author cite a,
-#content .atomentry .author cite a:hover { /* author mailto: link (if any) */
-	color: #aaa; background: transparent;
-	text-decoration: none;
+#content .hentry .fn {
+  font-weight: bold;
 }
 
-#content .atomentry .author abbr { /* posted date */
-	font-weight: bold;
-	color: #aaa;
+#content .hentry .fn a,
+#content .hentry .fn a:hover {
+  color: #aaa; background: transparent;
+  text-decoration: none;
 }
 
-#content .atomentry .content {}
+#content .hentry .clear { clear: both; }
 
-#content .atomentry ul.meta { 
-	font-size: 10px;
-	background: #eee;
-	margin: 0; padding: 5px;
-	border: 1px solid #ddd;
-	list-style-type: none;
+#content .hentry .entry-content {}
+
+#content .hentry ul.meta { 
+  font-size: 10px;
+  background: #eee;
+  margin: 0; padding: 5px;
+  border: 1px solid #ddd;
+  list-style-type: none;
 }
 
-#content .atomentry ul.meta li { 
-	line-height: 13px;
-	margin: 0; padding: 0;
+#content .hentry ul.meta li { 
+  line-height: 13px;
+  margin: 0; padding: 0;
 }
 
-#content .atomentry .meta a:link,
-#content .atomentry .meta a:visited {
-	color: #555;
+#content .hentry .meta a:link,
+#content .hentry .meta a:visited {
+  color: #555;
+  text-decoration: none;
+  border-bottom: 1px dotted #aaa;
 }
 
-#content .atomentry .meta a:hover,
-#content .atomentry .meta a:active  {
-	color: #fff;
+#content .hentry .meta a:hover,
+#content .hentry .meta a:active  {
+  color: #fff;
 }
+
 
 /* Comments and Trackbacks */
 #content ol.comments,
 #content ol.trackbacks {
-	list-style-type: none;
-	margin: 0; padding: 0;
+  list-style-type: none;
+  margin: 0; padding: 0;
 }
 
-#content .comment,
-#content .trackback {
-	border: 2px solid #ddd;
-	margin: 0 0 1.5em; padding: 1em;
+#content li.comment,
+#content li.trackback {
+  border: 2px solid #ddd;
+  margin: 0 0 1.5em; padding: 1em;
 }
 
-#content .comment.preview { 
-	background: #ffc;
-	border: 3px solid #fab444;
+#content li.comment.preview { 
+  background: #ffc;
+  border: 3px solid #fab444;
+  margin: 0 0 1.5em; padding: 1em;
 }
 
-#content .comment   .author,
-#content .trackback .author { 
-	font-weight: bold;
-	margin-bottom: 1em;
+#content li.comment   .author,
+#content li.trackback .author { 
+  font-weight: bold;
+  margin-bottom: 1em;
 }
 
-#content .comment   .author cite,
-#content .trackback .author cite {
-	font-size: 16px;
-	letter-spacing: -1px;
+#content li.comment   .author cite,
+#content li.trackback .author cite {
+  font-size: 16px;
+  letter-spacing: -1px;
 }
 
-#content .comment   .author abbr, 
-#content .trackback .author abbr { color: #999; }
+#content li.comment   .author abbr, 
+#content li.trackback .author abbr { color: #999; }
 
-#content .comment .author .gravatar { 
-	margin: 0 0 0.5em 0.5em;
-	float: right; 
+/* For future Gravatar support.  Not currently used. */
+/*
+#content li.comment .author .gravatar { 
+  margin: 0 0 0.5em 0.5em;
+  float: right; 
 }
+
+#content li.comment .author div {
+  margin: 0 0 0.5em 0.5em;
+  width: 60px; height: 60px;
+  background: url(images/gravatar.gif) no-repeat left top;
+  float: right; 
+}
+*/
 
 #content form.comments {
-	background: #f2f2f2;
-	border-top: 1px solid #ddd;
-	padding: 1em 0.5em;
+  background: #f2f2f2;
+  border-top: 1px solid #ddd;
+  padding: 1em 0.5em;
 }
 
 #content form.comments fieldset { 
-	border: none;
+  border: none;
 }
 
 #content form.comments legend { 
-	display: none;
+  display: none;
 }
 
 #content form.comments label { 
-	font-weight: bold;
+  font-weight: bold;
 }
 
 #content form.comments textarea { 
-	width: 90%; height: 150px;
-	padding: 3px;
+  width: 90%; height: 150px;
+  padding: 3px;
 }
 
 /*--------------------------------------------------------------
  Sidebar
  --------------------------------------------------------------*/
 #sidebar {
-	font-size: 11px; 
+  font-size: 11px; 
 }
 
 #sidebar h2 { 
-	font: bold 14px "lucidamac bold", "lucida grande", verdana, arial, helvetica, sans-serif;
-	margin: 0 0 0.5em;
+  font: bold 14px "lucidamac bold", "lucida grande", verdana, arial, helvetica, sans-serif;
+  margin: 0 0 0.5em;
 }
 
 #sidebar h2 a:link,
 #sidebar h2 a:visited {
-	color: #000; text-decoration: none;
+  color: #000; text-decoration: none;
 }
 
 #sidebar h2 a:hover,
 #sidebar h2 a:active {
-	background: transparent; text-decoration: underline;
+  background: transparent; text-decoration: underline;
 }
 
 #sidebar ul {
-	list-style-type: none; 
-	margin: 0 0 2em; padding: 0;
+  list-style-type: none; 
+  margin: 0 0 2em; padding: 0;
 }
 
 #sidebar li { 
-	margin: 0;
-	padding: 1px 0;
+  margin: 0;
+  padding: 1px 0;
 }
 
 #sidebar em { font-style: normal; }
 
-/* Live-search and results */
+/* Search and results */
 #sidebar .search p { 
-	margin: 0;
+  margin: 0;
 }
 
 #sidebar .search p input {
-	font-size: 11px; width: 92%;
+  font-size: 11px; width: 92%;
 }
 
 /*--------------------------------------------------------------
@@ -377,54 +448,54 @@ body {
  --------------------------------------------------------------*/
 
 #footer {
-	border-top: 1px solid #ccc; 
-	font-size: 90%; 
+  border-top: 1px solid #ccc; 
+  font-size: 90%; 
 }
 
 #footer a:link,
 #footer a:visited { 
-	color: #000;
+  color: #000;
 }
 
 #footer a:hover,
 #footer a:active { 
-	color: #fff;
-	background: #000;
+  color: #fff;
+  background: #000;
 }
 
 #footer hr {
-	display: none;
+  display: none;
 }
 
 #footer p {
-	width: 40%;
-	float: left; 
-	margin: 0; padding: 0; 
+  width: 40%;
+  float: left; 
+  margin: 0; padding: 0; 
 }
 
 #footer ul {
-	width: 40%;
-	margin: 0; padding: 0;
-	list-style-type: none; 
-	text-align: right; 
-	float: right; 
+  width: 40%;
+  margin: 0; padding: 0;
+  list-style-type: none; 
+  text-align: right; 
+  float: right; 
 }
 
 #footer li {
-	margin: 0; padding: 0 0 0 1em;
-	display: inline; 
+  margin: 0; padding: 0 0 0 1em;
+  display: inline; 
 }
 
-/*===== Global Styles =====*/
+/*===== Global Styles ====================*/
 
 @media print { #sidebar { display:none; }
-               #content { float: none; width:90%; }
+               #content { float: none; width: 90%; }
                #content pre { color: #000; background: #eee; }
-               #content form.comments { display:none; } }
+               #content form.comments { display: none; } }
 
 body {
-	background: url(images/background.gif) repeat-x left top;
-	font: normal 12px "lucida grande", verdana, arial, helvetica, sans-serif;
+  background: url(images/background.gif) repeat-x left top;
+  font: normal 12px "lucida grande", verdana, arial, helvetica, sans-serif;
 }
 
 input,
@@ -434,76 +505,84 @@ abbr  { border: none; }
 cite  { font-style: normal; }
 a img { border: none; padding: 0; margin: 0; }
 
-a:link,  a:visited { color: #930; }
+a:link,  a:visited { color: #000; }
 a:hover, a:active  { color: #fff; background: #000; }
 
+/* http://longren.org/2006/09/27/wrapping-text-inside-pre-tags */
+/* Uncomment if you want preformatted text to wrap in IE <= 6 */
+/*
+pre {
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap !important;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+*/
 
-
-/*==========*/
+/*========================================*/
 
 /* Begin Typography & Colors */
 span.caps
 {
-	font-size: 0.9em;
-	letter-spacing: .07em;
-	}
+  font-size: 0.9em;
+  letter-spacing: .07em;
+  }
 /* End Typography & Colors */
-
 
 
 /* Begin Images */
 p img {
-	padding: 0;
-	max-width: 100%;
-	}
+  padding: 0;
+  max-width: 100%;
+  }
 
-/*	Using 'class="alignright"' on an image will (who would've
-	thought?!) align the image to the right. And using 'class="centered',
-	will of course center the image. This is much better than using
-	align="center", being much more futureproof (and valid) */
-	
+/*  Using 'class="alignright"' on an image will (who would've
+  thought?!) align the image to the right. And using 'class="centered',
+  will of course center the image. This is much better than using
+  align="center", being much more futureproof (and valid) */
+  
 img.centered {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	}
-	
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  }
+  
 img.alignright {
-	padding: 4px;
-	margin: 0 0 2px 7px;
-	display: inline;
-	}
+  padding: 4px;
+  margin: 0 0 2px 7px;
+  display: inline;
+  }
 
 img.alignleft {
-	padding: 4px;
-	margin: 0 7px 2px 0;
-	display: inline;
-	}
+  padding: 4px;
+  margin: 0 7px 2px 0;
+  display: inline;
+  }
 
 .alignright {
-	float: right;
-	}
-	
+  float: right;
+  }
+  
 .alignleft {
-	float: left
-	}
+  float: left
+  }
 /* End Images */
-
 
 
 /* Begin Various Tags & Classes */
 span.caps {
-	cursor: help;
-	}
+  cursor: help;
+  }
 
 .center {
-	text-align: center;
-	}
+  text-align: center;
+  }
 
 .navigation {
-	display: block;
-	text-align: center;
-	margin-top: 10px;
-	margin-bottom: 60px;
-	}
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 60px;
+  }
 /* End Various Tags & Classes*/

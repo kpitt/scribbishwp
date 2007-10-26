@@ -1,19 +1,20 @@
 	<div id="sidebar">
     <ul>
 
+<?php if ( function_exists('dynamic_sidebar') && dynamic_sidebar(1) ) : else : ?>
       <!-- search -->
       <li id="search" class="search">
         <?php include (TEMPLATEPATH . '/searchform.php'); ?>
       </li>
 
       <!-- sidebar components -->
-      <!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
-      <li><h2>Author</h2>
+      <!-- Author information is disabled by default. Uncomment and fill in your details if you want to use it.
+      <li id="author"><h2 class="sidebar-title">Author</h2>
       <p>A little something about you, the author. Nothing lengthy, just an overview.</p>
       </li>
       -->
 
-      <li>
+      <li id="archives">
       <?php /* If this is a 404 page */ if (is_404()) { ?>
       <?php /* If this is a category archive */ } elseif (is_category()) { ?>
       <p>You are currently browsing the archives for the <?php single_cat_title(''); ?> category.</p>
@@ -37,23 +38,23 @@
       <?php } ?>
       </li>
 
-      <?php wp_list_pages('title_li=<h2>Pages</h2>' ); ?>
+      <?php wp_list_pages('title_li=<h2 class="sidebar-title">Pages</h2>' ); ?>
 
-      <li><h2>Categories</h2>
-        <ul id="categories">
+      <li id="categories"><h2 class="sidebar-title">Categories</h2>
+        <ul>
         <?php wp_list_cats('sort_column=name&optioncount=1&hierarchical=0'); ?>
         </ul>
       </li>
 
-      <li><h2>Syndicate</h2>
+      <li id="syndicate"><h2 class="sidebar-title">Syndicate</h2>
         <ul>
           <li><a href="feed:<?php bloginfo('rss2_url'); ?>" title="RSS 2.0 feed">Articles</a></li>
           <li><a href="feed:<?php bloginfo('comments_rss2_url'); ?>" title="Comments RSS 2.0 feed">Comments</a></li>
         </ul>
       </li>
 
-      <li><h2>Archives</h2>
-        <ul id="archives">
+      <li id="archives"><h2 class="sidebar-title">Archives</h2>
+        <ul>
         <?php wp_get_archives('type=monthly'); ?>
         </ul>
       </li>
@@ -61,7 +62,7 @@
       <?php /* If this is the frontpage */ if ( is_home() || is_page() ) { ?>				
         <?php get_links_list(); ?>
         
-        <li><h2>Meta</h2>
+        <li id="meta"><h2 class="sidebar-title">Meta</h2>
         <ul>
           <?php wp_register(); ?>
           <li><?php wp_loginout(); ?></li>
@@ -69,6 +70,7 @@
         </ul>
         </li>
       <?php } ?>
+<?php endif; ?>
 
     </ul>
 	</div>
